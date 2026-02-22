@@ -59,18 +59,26 @@ int main() {
 
     // demonstration of array functions
     cout << "Visitors per day" << endl;
-    cout << "1. size function:" << endl;
-    cout << "   days of data collected = " << size(visitors) << endl;
-    cout << "2. at function to show 4th item: " << visitors.at(3) << endl;
-    cout << "3. [] to show 4th item: " << visitors[3] << endl;
-    cout << "4. range-based for loop shows original array contents:\n   ";
+    cout << "1. empty function: ";
+    if(empty(visitors))
+        cout << "array is empty" << endl;
+    else
+        cout << "array is not empty" << endl;
+    cout << "2. size function: days of data collected = " << size(visitors) << endl;
+    cout << "3. range-based for loop shows original array contents:\n   ";
     for (int item : visitors) cout << item << " ";
     cout << endl;
-    cout << "5. sort function:\n   ";
+    cout << "4. at function to show 4th item: " << visitors.at(3) << endl;
+    cout << "5. [] to show 4th item: " << visitors[3] << endl;
+    cout << "6. min_element function: min value is " << *min_element(visitors.begin(), visitors.end()) << endl;
+    cout << "6. max_element function: max value is " << *max_element(visitors.begin(), visitors.end()) << endl;
+    cout << "7. front function: first value is " << visitors.front() << endl;
+    cout << "8. back function: last value is " << visitors.back() << endl;
+    cout << "9. sort function:\n   ";
     sort(visitors.begin(), visitors.end());
     for (int item : visitors) cout << item << " ";
     cout << endl;
-    cout << "6. find function:\n   ";
+    cout << "10. find function:\n   ";
     cout << "searching for value 23 (appears 3 times in the array)... ";
     array<int, SIZE>::iterator it; // iterator for pointing to elements in the array
     it = find(visitors.begin(), visitors.end(), 23);
@@ -85,10 +93,10 @@ int main() {
         cout << "found at position " << it - visitors.begin() << endl;
     else
         cout << "value not found" << endl;
-    cout << "7. begin:" << endl;
-
-    cout << "8. end " << endl;
-
-    cout << "9. " << endl;
+    cout << "11. sort function to reverse: \n   ";
+    sort(visitors.rbegin(), visitors.rend());
+    for (int item : visitors) cout << item << " ";
+    cout << endl;
+    cout << "12. addressof function: " << addressof(visitors) << endl;
     return 0;
 }
