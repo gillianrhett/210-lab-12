@@ -11,13 +11,13 @@ The requirements are:
 #include <iostream>
 #include <fstream>
 #include <array>
-#include <string>
+#include <string> // for the filename
 using namespace std;
 
 const string filename = "infile.txt";
 
 int main() {
-    fstream inFile; // file object to get the items from
+    ifstream inFile; // file object to get the items from
     try {
         inFile.open(filename, ios::in);
         if(inFile.fail()) 
@@ -29,16 +29,18 @@ int main() {
     }
     int numItems = 0;
     // loop through the file once to find out the number of items
-    int tempInt;
+    int tempInt = 0;
     while(inFile >> tempInt){
         ++numItems;
     }  
 
     int* arr = new int[numItems]; // array to store items from file
+    inFile.clear();
     inFile.seekg(ios::beg); // back to the beginning so we can store the items in the array
     int i = 0;
     while(inFile >> tempInt){
-        *(arr + i) = tempInt; // TODO fix this
+        cout << tempInt << ", "; // TESTING
+        *(arr + i) = tempInt;
         ++i;
     }
     // now the ints from the file are in the array
