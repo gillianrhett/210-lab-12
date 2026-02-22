@@ -74,11 +74,18 @@ int main() {
     cout << "6. max_element function: max value is " << *max_element(visitors.begin(), visitors.end()) << endl;
     cout << "7. front function: first value is " << visitors.front() << endl;
     cout << "8. back function: last value is " << visitors.back() << endl;
-    cout << "9. sort function:\n   ";
+    cout <<  "9. overloaded = operator to copy array:" << endl;
+    array <int, SIZE> copy_of_visitors = visitors;
+    cout << "   copy_of_visitors array: \n   ";
+    for (int item : copy_of_visitors) cout << item << " ";
+    cout << endl;
+    cout << "10. address of visitors array: " << addressof(visitors) << endl;
+    cout << "11. address of visitors array: " << addressof(copy_of_visitors) << endl;
+    cout << "12. sort function:\n   ";
     sort(visitors.begin(), visitors.end());
     for (int item : visitors) cout << item << " ";
     cout << endl;
-    cout << "10. find function:\n   ";
+    cout << "13. find function:\n   ";
     cout << "searching for value 23 (appears 3 times in the array)... ";
     array<int, SIZE>::iterator it; // iterator for pointing to elements in the array
     it = find(visitors.begin(), visitors.end(), 23);
@@ -93,10 +100,13 @@ int main() {
         cout << "found at position " << it - visitors.begin() << endl;
     else
         cout << "value not found" << endl;
-    cout << "11. sort function to reverse: \n   ";
+    cout << "14. sort function to reverse: \n   ";
     sort(visitors.rbegin(), visitors.rend());
     for (int item : visitors) cout << item << " ";
     cout << endl;
-    cout << "12. addressof function: " << addressof(visitors) << endl;
+    cout << "15. sort the first half: \n   ";
+    sort(visitors.begin(), visitors.end() - SIZE / 2);
+    for (int item : visitors) cout << item << " ";
+    cout << endl;
     return 0;
 }
