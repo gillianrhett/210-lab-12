@@ -57,8 +57,20 @@ int main() {
     }
     // now the ints from the file are in the array
 
-    // TODO demonstration of array functions
-
-
+    // demonstration of array functions
+    cout << "Visitors per day" << endl;
+    cout << "1. size function:" << endl;
+    cout << "   days of data collected = " << size(visitors) << endl;
+    cout << "2. range-based for loop shows original array contents:\n   ";
+    for (int item : visitors) cout << item << " ";
+    cout << endl;
+    cout << "3. sort function:\n   ";
+    sort(visitors.begin(), visitors.end());
+    for (int item : visitors) cout << item << " ";
+    cout << endl;
+    cout << "4. find function\n   ";
+    cout << ". " << endl;
+    cout << ". " << endl;
+    cout << ". " << endl;
     return 0;
 }
